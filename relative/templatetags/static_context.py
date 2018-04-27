@@ -18,6 +18,7 @@ class StaticNode(template.Node):
 
     def render(self, context):
         tenant = context['request'].META.get("HTTP_TENANT")
+        print context['request'].META
         url = self.url(context)
         if tenant:
             url = "/%s" % tenant + url
